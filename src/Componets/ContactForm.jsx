@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Box, Typography, Container } from "@mui/material";
+ // Ensure you have a CSS file for styling
 
 export const ContactForm = () => {
   // State to store form values
@@ -16,79 +16,77 @@ export const ContactForm = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box 
-        component="form" 
-        onSubmit={handleSubmit}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          padding: 3,
-          boxShadow: 3,
-          borderRadius: 2,
-          bgcolor: "background.paper",
-        }}
-      >
-        <Typography variant="h4" component="h1" align="center" gutterBottom>
-          Contact Us
-        </Typography>
+    <div className="contact">
+      <div className="contact-form" style={{  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', padding: '20px', borderRadius: '8px' }}>
+        <form onSubmit={handleSubmit} className="form-container" style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <h1 style={{ color: '#007bff' }}>Contact Us</h1>
 
-        <TextField
-          label="Name"
-          variant="outlined"
-          fullWidth
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <TextField
-          label="Email"
-          type="email"
-          variant="outlined"
-          fullWidth
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          label="Phone Number"
-          type="tel"
-          variant="outlined"
-          fullWidth
-          required
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <TextField
-          label="Message"
-          variant="outlined"
-          multiline
-          rows={4}
-          fullWidth
-          required
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          size="large"
-        >
-          Send
-        </Button>
-      </Box>
+          <div className="form-group">
+            <label className="label-text" htmlFor="name">Name:</label>
+            <input 
+            className="form-colour"
+              type="text"
+              id="name"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            />
+          </div>
 
-      {/* Displaying the email and phone number after submission */}
-      {submitted && (
-        <Box sx={{ marginTop: 3, padding: 2, backgroundColor: "background.default" }}>
-          <Typography variant="h6">Submitted Details:</Typography>
-          <Typography variant="body1"><strong>Email:</strong> {email}</Typography>
-          <Typography variant="body1"><strong>Phone:</strong> {phone}</Typography>
-        </Box>
-      )}
-    </Container>
+          <div className="form-group">
+            <label className="label-text" htmlFor="email">Email:</label>
+            <input
+            className="form-colour"
+              type="email"
+              id="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="label-text" htmlFor="phone">Phone Number:</label>
+            <input
+            className="form-colour"
+              type="tel"
+              id="phone"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="label-text" htmlFor="message">Message:</label>
+            <textarea
+            className="form-colour"
+              id="message"
+              rows="4"
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+            ></textarea>
+          </div>
+
+          <button type="submit" className="submit-button" style={{ padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Send</button>
+        </form>
+
+        {submitted && (
+          <div className="submitted-details" style={{ marginTop: '20px', padding: '10px', border: '1px solid #007bff', borderRadius: '5px', backgroundColor: '#e9f5ff' }}>
+            <h2 style={{ color: '#007bff' }}>Submitted Details:</h2>
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Phone:</strong> {phone}</p>
+            <p><strong>Message:</strong> {message}</p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
