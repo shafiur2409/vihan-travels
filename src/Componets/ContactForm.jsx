@@ -55,6 +55,8 @@ export const ContactForm = () => {
               id="phone"
               required
               value={phone}
+              maxLength={10}
+            
               onChange={(e) => setPhone(e.target.value)}
               style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
             />
@@ -77,8 +79,8 @@ export const ContactForm = () => {
         </form>
 
         {submitted && (
-          <div className="submitted-details" style={{ marginTop: '20px', padding: '10px', border: '1px solid #007bff', borderRadius: '5px', backgroundColor: '#e9f5ff' }}>
-            <h2 style={{ color: '#007bff' }}>Submitted Details:</h2>
+          <div className="submitted-details" style={{ marginTop: '20px', padding: '10px', border: '1px solid #007bff', borderRadius: '5px', backgroundColor: 'blue' }}>
+            <h2 style={{ color: 'black' }}>Submitted Details:</h2>
             <p><strong>Name:</strong> {name}</p>
             <p><strong>Email:</strong> {email}</p>
             <p><strong>Phone:</strong> {phone}</p>

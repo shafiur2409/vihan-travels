@@ -7,10 +7,15 @@
 }
 
 .home{
-    background-color:#f9f9f9;
+    background-color:navajowhite;
 }
-.service{
-    background-color: brown;
+.service-content{
+    background-color:#e9f5;
+    
+}
+.service-text{
+  color: black;
+
 }
 .contact {
     display: flex;
@@ -73,7 +78,7 @@
     padding: 10px;
     border: 1px solid #007bff;
     border-radius: 5px;
-    background-color: #e9f5ff;
+    background-color:black;
   }
   
   @media (max-width: 768px) {
@@ -85,5 +90,8 @@
     color:black;
 } 
 .form-colour{
-    background-color: transparent ! important;
+    background-color:#e9f5;
 } 
+.footer{
+  color:black;
+}
